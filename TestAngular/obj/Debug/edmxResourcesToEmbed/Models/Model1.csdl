@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sontest2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="sontest2Entities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="User_GetList" ReturnType="Collection(sontest2Model.User_GetList_Result)">
+      <Parameter Name="pageIndex" Mode="In" Type="Int32" />
+      <Parameter Name="pageSize" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="User_GetList_Result">
+    <Property Type="Int64" Name="RowNumber" Nullable="true" />
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="ApplicationId" Nullable="false" />
+    <Property Type="String" Name="FirstName" Nullable="true" />
+    <Property Type="String" Name="LastName" Nullable="true" />
+    <Property Type="String" Name="AvatarUrl" Nullable="true" />
+    <Property Type="Boolean" Name="Active" Nullable="false" />
+    <Property Type="Int32" Name="CompanyId" Nullable="true" />
+    <Property Type="Int32" Name="YayYoId" Nullable="false" />
+    <Property Type="String" Name="SaltDigitCodeHash" Nullable="true" />
+    <Property Type="String" Name="Email" Nullable="true" />
+    <Property Type="Boolean" Name="EmailConfirmed" Nullable="false" />
+    <Property Type="String" Name="PasswordHash" Nullable="true" />
+    <Property Type="String" Name="SecurityStamp" Nullable="true" />
+    <Property Type="String" Name="PhoneNumber" Nullable="true" />
+    <Property Type="Boolean" Name="PhoneNumberConfirmed" Nullable="false" />
+    <Property Type="Boolean" Name="TwoFactorEnabled" Nullable="false" />
+    <Property Type="DateTime" Name="LockoutEndDateUtc" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="LockoutEnabled" Nullable="false" />
+    <Property Type="Int32" Name="AccessFailedCount" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="true" />
+  </ComplexType>
+</Schema>

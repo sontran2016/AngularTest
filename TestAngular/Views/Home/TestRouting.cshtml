@@ -1,0 +1,51 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>        
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular-route.js"></script>
+
+    @*<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>*@
+    @*<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>*@
+
+    <meta name="viewport" content="width=device-width" />
+    <title>TestAngular</title>
+</head>
+<body ng-app="myApp">
+    <script>
+        var app = angular.module("myApp", ["ngRoute"]);
+        app.config(function($routeProvider) {
+            $routeProvider
+            .when("/main", {
+                templateUrl: "/home/main"
+            })
+            .when("/red", {
+                templateUrl : "/home/red"
+            })
+            .when("/green", {
+                templateUrl: "/home/green"
+            })
+            .when("/blue", {
+                templateUrl: "/home/blue"
+                ,controller:"ctrlBlue"
+            });
+        });
+        app.controller('ctrlBlue', function ($scope) {
+        });
+    </script>
+
+    <p><a href="#main">Main</a></p>
+    <a href="#red">Red</a>
+    <a href="#green">Green</a>
+    <a href="#blue">Blue</a>
+
+    <div ng-view></div>
+    <p>Click on the links to navigate to "red.htm", "green.htm", "blue.htm", or back to "main.htm"</p>
+
+</body>
+</html>

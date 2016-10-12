@@ -1,0 +1,58 @@
+﻿
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/angular.min.js"></script>
+@{
+    Layout = null;
+}
+<style>
+    ul {
+        max-width:300px;
+    }
+    input {
+        max-width:300px;
+    }
+</style>
+
+<div ng-app="myShoppingList" ng-controller="myCtrl">
+    <br/>
+    <div class="col-lg-12">
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-heading active">Products</li>
+            <li class="list-group-item" ng-repeat="x in products">{{x}}<span class="close" ng-click="removeItem($index)">×</span></li>
+        </ul>
+    </div>      
+    <div class="form-group">
+        <div class="col-md-2">
+            <input class="form-control" ng-model="addMe">
+        </div>
+        <div class="col-md-10">
+            <button class="btn btn-default" ng-click="addItem()">Add</button>
+        </div>
+    </div>          
+        <p>{{errortext}}</p>
+    <br/>
+</div>
+
+<script>
+        var app = angular.module("myShoppingList", []);
+        app.controller("myCtrl", function($scope) {
+            $scope.products = ["Milk", "Bread", "Cheese"];
+            $scope.addItem = function () {
+                $scope.errortext = "";
+                if (!$scope.addMe) {return;}
+                if ($scope.products.indexOf($scope.addMe) == -1) {
+                    $scope.products.push($scope.addMe);
+                } else {
+                    $scope.errortext = "The item is already in your shopping list.";
+                }
+            }
+            $scope.removeItem = function (x) {
+                $scope.errortext = "";
+                $scope.products.splice(x, 1);
+            }
+        });
+</script>
+
+
