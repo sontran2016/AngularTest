@@ -21,9 +21,6 @@ namespace TestAngular.Models
             CreateDate = DateTime.Now;
         }
 
-        //[Key]
-        //[DatabaseGenerated( DatabaseGeneratedOption.Identity)]
-        //public int Id { get; set; }
         [Required]
         public string Code { get; set; }
         [Required]
@@ -34,9 +31,6 @@ namespace TestAngular.Models
     }
     public class OrderDetail:BaseEntity
     {
-        //[Key]
-        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        //public int Id { get; set; }
         [Required]
         public int ProductId { get; set; }
         [Required]
@@ -49,11 +43,8 @@ namespace TestAngular.Models
         public Order Order { get; set; }
         public Product Product { get; set; }
     }
-    public class Product
+    public class Product:BaseEntity
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
         [Required]
         public string FullName { get; set; }
         public string Phone { get; set; }
