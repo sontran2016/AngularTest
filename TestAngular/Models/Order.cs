@@ -38,7 +38,7 @@ namespace TestAngular.Models
         //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         //public int Id { get; set; }
         [Required]
-        public string GoodCode { get; set; }
+        public int ProductId { get; set; }
         [Required]
         public int Quantity { get; set; }
         [Required]
@@ -47,12 +47,25 @@ namespace TestAngular.Models
         public int OrderId { get; set; }
 
         public Order Order { get; set; }
+        public Product Product { get; set; }
+    }
+    public class Product
+    {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        [Required]
+        public string FullName { get; set; }
+        public string Phone { get; set; }
+
+        public ICollection<OrderDetail> OrderDetails { get; set; }
+
     }
 
     public class Customer:BaseEntity
     {
         [Required]
         public string FullName { get; set; }
-        public string Phone { get; set; }
+        public string Phone { get; set;  }
     }
 }
