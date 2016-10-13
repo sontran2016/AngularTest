@@ -24,6 +24,7 @@ namespace TestAngular.Models
 
         public DbSet<Order> Order { get; set; }
         public DbSet<OrderDetail> OrderDetail { get; set; }
+        public DbSet<Customer> Customer { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

@@ -180,3 +180,4 @@ C:\SonTran\TestAngularGit\AngularTest\TestAngular\obj\Debug\TestAngular.dll
 C:\SonTran\TestAngularGit\AngularTest\TestAngular\obj\Debug\TestAngular.pdb
 C:\SonTran\TestAngularGit\AngularTest\TestAngular\obj\Debug\TestAngular.Migrations.AddTableOrder.resources
 C:\SonTran\TestAngularGit\AngularTest\TestAngular\obj\Debug\TestAngular.csproj.GenerateResource.Cache
+C:\SonTran\TestAngularGit\AngularTest\TestAngular\obj\Debug\TestAngular.Migrations.AddTableCustomer.resources

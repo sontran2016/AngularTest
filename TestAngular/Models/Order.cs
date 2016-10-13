@@ -8,16 +8,22 @@ using System.Web;
 
 namespace TestAngular.Models
 {
-    public class Order
+    public class BaseEntity
+    {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+    }
+    public class Order:BaseEntity
     {
         public Order()
         {
             CreateDate = DateTime.Now;
         }
 
-        [Key]
-        [DatabaseGenerated( DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        //[Key]
+        //[DatabaseGenerated( DatabaseGeneratedOption.Identity)]
+        //public int Id { get; set; }
         [Required]
         public string Code { get; set; }
         [Required]
@@ -26,11 +32,11 @@ namespace TestAngular.Models
 
         public ICollection<OrderDetail> OrderDetails { get; set; }
     }
-    public class OrderDetail
+    public class OrderDetail:BaseEntity
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        //[Key]
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //public int Id { get; set; }
         [Required]
         public string GoodCode { get; set; }
         [Required]
@@ -41,5 +47,12 @@ namespace TestAngular.Models
         public int OrderId { get; set; }
 
         public Order Order { get; set; }
+    }
+
+    public class Customer:BaseEntity
+    {
+        [Required]
+        public string FullName { get; set; }
+        public string Phone { get; set; }
     }
 }
